@@ -109,3 +109,4 @@ After setting up the database:
 3. Implement additional point-earning features
 4. Set up referral tracking (if needed)
 
+

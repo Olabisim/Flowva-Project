@@ -197,14 +197,14 @@ export function RewardsHub() {
                       );
                     })}
                   </div>
-                  <p className="text-sm text-gray-700 mb-4">
+                  <p className="text-sm text-gray-700 mb-4 text-center">
                     Check in daily to to earn +5 points.
                   </p>
                   {checkInError && (
                     <p className="text-sm text-red-500 mb-2">{checkInError}</p>
                   )}
                   <Button 
-                    className={`w-full ${
+                    className={`w-full rounded-full ${
                       isCheckedInToday()
                         ? "bg-gray-300 hover:bg-gray-300 text-gray-700 cursor-not-allowed border-gray-300"
                         : "bg-purple-600 hover:bg-purple-700 text-white"
@@ -213,7 +213,7 @@ export function RewardsHub() {
                     disabled={isCheckedInToday() || checkInLoading}
                     variant={isCheckedInToday() ? "outline" : "default"}
                   >
-                    <Zap className={`w-4 h-4 mr-2 ${isCheckedInToday() ? "text-gray-700" : "text-white"}`} />
+                    <Zap className={`w-4 h-5 py-2 mr-2 ${isCheckedInToday() ? "text-gray-700" : "text-white"}`} />
                     {checkInLoading 
                       ? "Claiming..." 
                       : isCheckedInToday() 
@@ -294,7 +294,7 @@ export function RewardsHub() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Refer and win card */}
-                <div className="bg-white rounded-xl p-6 border border-purple-300">
+                <div className="bg-white rounded-xl p-6 border border-transparent hover:border-purple-300 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 cursor-pointer">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Star className="w-6 h-6 text-purple-600 stroke-2 fill-none stroke-purple-600" />
@@ -313,7 +313,7 @@ export function RewardsHub() {
                 </div>
 
                 {/* Share Your Stack card */}
-                <div className="bg-white rounded-xl p-6">
+                <div className="bg-white rounded-xl p-6 border border-transparent hover:border-purple-300 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 cursor-pointer">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Share2 className="w-6 h-6 text-purple-600" />
@@ -344,9 +344,9 @@ export function RewardsHub() {
               </div>
               <div className="bg-purple-50 rounded-xl p-6 md:p-8 shadow-sm border border-purple-100">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
+                  {/* <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0"> */}
+                    <Users className="w-6 h-6 text-purple" />
+                  {/* </div> */}
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       Share Your Link
@@ -357,12 +357,12 @@ export function RewardsHub() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                  <div className="text-center">
                     <p className="text-3xl font-bold text-purple-600 mb-1">0</p>
                     <p className="text-sm text-gray-600">Referrals</p>
                   </div>
-                  <div>
+                  <div className="text-center">
                     <p className="text-3xl font-bold text-purple-600 mb-1">0</p>
                     <p className="text-sm text-gray-600">Points Earned</p>
                   </div>
@@ -393,18 +393,18 @@ export function RewardsHub() {
                 </div>
 
                 {/* Social Share Icons */}
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center justify-center gap-4 mt-5 pt-5">
                   <div className="flex gap-3">
-                    <button className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                    <button className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                       <span className="text-white font-bold text-sm">f</span>
                     </button>
-                    <button className="w-10 h-10 bg-black rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors">
+                    <button className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
                       <XIcon className="w-5 h-5 text-white" />
                     </button>
-                    <button className="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center hover:bg-blue-800 transition-colors">
+                    <button className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
                       <span className="text-white font-bold text-xs">in</span>
                     </button>
-                    <button className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors">
+                    <button className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
                       <span className="text-white text-lg">💬</span>
                     </button>
                   </div>
@@ -415,7 +415,7 @@ export function RewardsHub() {
         )}
 
         {activeTab === "redeem" && (
-          <div className="space-y-6">
+          <div className="space-y-6 pt-6">
             {/* Section Title */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900">

@@ -34,12 +34,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* Logo */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Brain className="w-6 h-6 text-white" />
-            </div>
-            {sidebarOpen && (
-              <span className="text-xl font-bold text-purple-600">Flowva</span>
-            )}
+            <img 
+              src="/flowva.png" 
+              alt="Flowva Logo" 
+              className={`${sidebarOpen ? "h-16" : "h-8"} w-auto object-contain`}
+            />
           </div>
         </div>
 

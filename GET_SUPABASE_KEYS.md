@@ -94,3 +94,4 @@ https://app.supabase.com/project/[your-project-id]/settings/api
 - Restart your development server after creating/updating `.env.local`
 - In Next.js, environment variables starting with `NEXT_PUBLIC_` are available in the browser
 
+
