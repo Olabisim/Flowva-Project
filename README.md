@@ -176,13 +176,6 @@ flowva/
 - **Tab Navigation**: Switch between "Earn Points" and "Redeem Rewards"
 - **Responsive Layout**: Sidebar navigation with main content area
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
 ## Assumptions and Trade-offs
 
 ### Assumptions
@@ -239,19 +232,6 @@ flowva/
    - **Reason**: Better branding and user experience
    - **Trade-off**: Requires manual setup in Supabase dashboard
 
-## Troubleshooting
-
-### Environment Variables Not Loading
-
-- Ensure file is named exactly `.env.local` (not `.env` or `.env.example`)
-- Restart your development server after creating/updating `.env.local`
-- Check that variables start with `NEXT_PUBLIC_` for client-side access
-
-### Database Errors
-
-- Verify that migrations have been run in Supabase SQL Editor
-- Check Row Level Security (RLS) policies are enabled
-- Ensure database trigger `on_auth_user_created` exists
 
 ### Authentication Issues
 
@@ -265,39 +245,6 @@ flowva/
 - Check for TypeScript errors: `npm run lint`
 - Verify all dependencies are installed: `npm install`
 
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
-Vercel will automatically detect Next.js and configure the build settings.
-
-### Other Platforms
-
-The app can be deployed to any platform that supports Next.js:
-- [Netlify](https://www.netlify.com/)
-- [Railway](https://railway.app/)
-- [Render](https://render.com/)
-
-Make sure to:
-- Set environment variables in your platform's dashboard
-- Configure Supabase redirect URLs to include your production domain
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is private and proprietary.
 
 ## Support
 
