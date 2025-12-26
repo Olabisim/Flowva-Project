@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Brain, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function Navbar() {
   const navItems = ["Hub", "Company", "Support", "Community"];
+
+  const router = useRouter()
 
   return (
     <>
@@ -79,6 +82,7 @@ export function Navbar() {
                 <Button
                   variant="outline"
                   className="border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg"
+                  onClick={() => router.push('/login?mode=login')}
                 >
                   Login
                 </Button>
@@ -90,6 +94,7 @@ export function Navbar() {
               >
                 <Button
                   className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg border-0"
+                  onClick={() => router.push('/login?mode=signup')}
                 >
                   Sign up
                 </Button>

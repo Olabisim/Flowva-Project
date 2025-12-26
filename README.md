@@ -1,109 +1,311 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# Flowva
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
-
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+A modern web application for managing productivity tools with a rewards-based system. Built with Next.js, Supabase, and Tailwind CSS.
 
 ## Features
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Proxy
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Password-based authentication block installed via the [Supabase UI Library](https://supabase.com/ui/docs/nextjs/password-based-auth)
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+- 🎨 **Beautiful Landing Page** - Pixel-perfect design with smooth animations
+- 🔐 **Authentication** - Email/password authentication with Supabase
+- 🎁 **Rewards System** - Earn points through daily check-ins and referrals
+- 📊 **Dashboard** - Track your progress, streaks, and redeem rewards
+- 🎯 **Responsive Design** - Works seamlessly on mobile, tablet, and desktop
+- ⚡ **Real-time Updates** - Powered by Supabase for instant data synchronization
 
-## Demo
+## Tech Stack
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Database & Auth**: [Supabase](https://supabase.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
 
-## Deploy to Vercel
+## Prerequisites
 
-Vercel deployment will guide you through creating a Supabase account and project.
+Before you begin, ensure you have the following installed:
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/)
+- A [Supabase](https://supabase.com/) account (free tier works)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
+## Setup Instructions
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+### 1. Clone the Repository
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+```bash
+git clone <your-repo-url>
+cd flowva
+```
 
-## Clone and run locally
+### 2. Install Dependencies
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-2. Create a Next.js app using the Supabase Starter template npx command
+### 3. Set Up Supabase
 
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
-   ```
+#### 3.1 Create a Supabase Project
 
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
-   ```
+1. Go to [https://supabase.com](https://supabase.com) and sign up or log in
+2. Click "New Project"
+3. Fill in your project details:
+   - **Name**: Flowva (or your preferred name)
+   - **Database Password**: Create a strong password (save this!)
+   - **Region**: Choose the region closest to you
+4. Click "Create new project" and wait for setup to complete
 
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
-   ```
+#### 3.2 Get Your Supabase Keys
 
-3. Use `cd` to change into the app's directory
+1. In your Supabase project dashboard, go to **Settings** (⚙️) → **API**
+2. Copy the following values:
+   - **Project URL** (looks like: `https://xxxxxxxxxxxxx.supabase.co`)
+   - **anon/public key** (this is your `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`)
 
-   ```bash
-   cd with-supabase-app
-   ```
+> 📖 **Detailed instructions**: See [GET_SUPABASE_KEYS.md](./GET_SUPABASE_KEYS.md) for step-by-step guidance
 
-4. Rename `.env.example` to `.env.local` and update the following:
+#### 3.3 Set Up Environment Variables
 
-  ```env
-  NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=[INSERT SUPABASE PROJECT API PUBLISHABLE OR ANON KEY]
-  ```
-  > [!NOTE]
-  > This example uses `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, which refers to Supabase's new **publishable** key format.
-  > Both legacy **anon** keys and new **publishable** keys can be used with this variable name during the transition period. Supabase's dashboard may show `NEXT_PUBLIC_SUPABASE_ANON_KEY`; its value can be used in this example.
-  > See the [full announcement](https://github.com/orgs/supabase/discussions/29260) for more information.
+1. Create a `.env.local` file in the project root:
 
-  Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true)
+```bash
+# Windows (PowerShell)
+New-Item -Path .env.local -ItemType File
 
-5. You can now run the Next.js local development server:
+# Mac/Linux
+touch .env.local
+```
 
-   ```bash
-   npm run dev
-   ```
+2. Add your Supabase credentials to `.env.local`:
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+Replace the placeholder values with your actual keys from Supabase.
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+> ⚠️ **Important**: Never commit `.env.local` to git. It should already be in `.gitignore`.
 
-## Feedback and issues
+#### 3.4 Run Database Migrations
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+1. In your Supabase dashboard, go to **SQL Editor**
+2. Open the file `supabase/migrations/001_create_users_table.sql`
+3. Copy the entire SQL content and paste it into the SQL Editor
+4. Click "Run" to execute the migration
 
-## More Supabase examples
+This will create:
+- The `users` table with fields: `id`, `name`, `email`, `points`, `user_type`, `last_check_in`, `streak_days`
+- Row Level Security (RLS) policies
+- Database triggers for automatic profile creation and timestamp updates
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+#### 3.5 Set Up Email Templates (Optional but Recommended)
+
+1. In Supabase dashboard, go to **Authentication** → **Email Templates**
+2. Select "Confirm signup" template
+3. Copy the content from `supabase/email-templates/confirm-email.html`
+4. Paste it into the template editor
+5. Set the subject to: **"Confirm Your Signup to Flowva"**
+6. Save the template
+
+> 📖 **Detailed instructions**: See [supabase/email-templates/EMAIL_SETUP.md](./supabase/email-templates/EMAIL_SETUP.md)
+
+### 4. Run the Development Server
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+### 5. Verify Setup
+
+Visit [http://localhost:3000/check-env](http://localhost:3000/check-env) to verify that your environment variables are loaded correctly.
+
+## Project Structure
+
+```
+flowva/
+├── app/                          # Next.js App Router pages
+│   ├── dashboard/                # Dashboard pages
+│   ├── login/                    # Authentication page
+│   └── page.tsx                  # Landing page
+├── components/
+│   ├── dashboard/               # Dashboard components
+│   ├── landing-page-components/ # Landing page sections
+│   ├── ui/                      # shadcn/ui components
+│   └── auth-page.tsx            # Unified auth component
+├── lib/
+│   ├── hooks/                   # Custom React hooks
+│   │   └── use-user.ts          # User profile hook
+│   └── supabase/                # Supabase client utilities
+├── public/                       # Static assets
+├── supabase/
+│   ├── migrations/              # Database migrations
+│   └── email-templates/         # Email templates
+└── README.md
+```
+
+## Key Features Implementation
+
+### Authentication
+
+- **Unified Auth Page**: Single page (`/login`) handles both login and signup
+- **Email Confirmation**: Custom email template for signup verification
+- **Password Reset**: Forgot password functionality
+- **Session Management**: Cookie-based sessions with `@supabase/ssr`
+
+### Rewards System
+
+- **Daily Check-in**: Users can claim 5 points once per day
+- **Streak Tracking**: Tracks consecutive daily check-ins
+- **Points Balance**: Real-time points display
+- **Referral System**: Earn points by referring friends
+
+### Dashboard
+
+- **Fixed Header**: Title, subtitle, and tabs remain fixed while content scrolls
+- **Tab Navigation**: Switch between "Earn Points" and "Redeem Rewards"
+- **Responsive Layout**: Sidebar navigation with main content area
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Assumptions and Trade-offs
+
+### Assumptions
+
+1. **User Model**: 
+   - Users are identified by email (unique constraint)
+   - All users start with 0 points and "user" type
+   - User profiles are automatically created on signup via database trigger
+
+2. **Daily Check-in**:
+   - Check-in resets at midnight UTC
+   - Users can only check in once per day
+   - Streak is calculated based on consecutive days (resets if a day is missed)
+
+3. **Authentication Flow**:
+   - Email confirmation is required for new signups
+   - Users are redirected to `/dashboard` after successful authentication
+   - Session is managed via HTTP-only cookies for security
+
+4. **UI/UX**:
+   - Landing page animations are optimized for modern browsers
+   - Mobile-first responsive design approach
+   - Carousels support both drag and auto-play (where applicable)
+
+### Trade-offs
+
+1. **Database Triggers vs. Application Logic**:
+   - **Choice**: User profile creation happens via database trigger
+   - **Reason**: Ensures data consistency even if application code fails
+   - **Trade-off**: Less visibility into errors, but more reliable
+
+2. **Cookie-based Sessions**:
+   - **Choice**: Using `@supabase/ssr` for cookie-based auth
+   - **Reason**: Better security and works across all Next.js rendering modes
+   - **Trade-off**: Slightly more complex setup than token-based auth
+
+3. **Unified Auth Page**:
+   - **Choice**: Single page for both login and signup
+   - **Reason**: Simpler navigation and code maintenance
+   - **Trade-off**: URL query parameters needed to distinguish modes
+
+4. **Client-side State Management**:
+   - **Choice**: React hooks (`useState`, `useEffect`) for local state
+   - **Reason**: Simplicity for current feature set
+   - **Trade-off**: May need state management library (Redux, Zustand) as app grows
+
+5. **Static Image Assets**:
+   - **Choice**: Images stored in `public/` folder
+   - **Reason**: Simple and works well for small number of assets
+   - **Trade-off**: No automatic optimization; consider Next.js Image component for production
+
+6. **Email Template Customization**:
+   - **Choice**: Custom HTML email template in Supabase
+   - **Reason**: Better branding and user experience
+   - **Trade-off**: Requires manual setup in Supabase dashboard
+
+## Troubleshooting
+
+### Environment Variables Not Loading
+
+- Ensure file is named exactly `.env.local` (not `.env` or `.env.example`)
+- Restart your development server after creating/updating `.env.local`
+- Check that variables start with `NEXT_PUBLIC_` for client-side access
+
+### Database Errors
+
+- Verify that migrations have been run in Supabase SQL Editor
+- Check Row Level Security (RLS) policies are enabled
+- Ensure database trigger `on_auth_user_created` exists
+
+### Authentication Issues
+
+- Verify email confirmation is set up correctly
+- Check Supabase project settings for email configuration
+- Ensure redirect URLs are whitelisted in Supabase dashboard
+
+### Build Errors
+
+- Clear `.next` folder and rebuild: `rm -rf .next && npm run build`
+- Check for TypeScript errors: `npm run lint`
+- Verify all dependencies are installed: `npm install`
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy!
+
+Vercel will automatically detect Next.js and configure the build settings.
+
+### Other Platforms
+
+The app can be deployed to any platform that supports Next.js:
+- [Netlify](https://www.netlify.com/)
+- [Railway](https://railway.app/)
+- [Render](https://render.com/)
+
+Make sure to:
+- Set environment variables in your platform's dashboard
+- Configure Supabase redirect URLs to include your production domain
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is private and proprietary.
+
+## Support
+
+For issues and questions:
+- Check the [Troubleshooting](#troubleshooting) section
+- Review Supabase documentation: [https://supabase.com/docs](https://supabase.com/docs)
+- Review Next.js documentation: [https://nextjs.org/docs](https://nextjs.org/docs)
+
+---
+
+Built with ❤️ using Next.js and Supabase
