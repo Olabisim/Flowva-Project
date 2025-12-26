@@ -39,6 +39,7 @@ function GoogleIcon({ className }: { className?: string }) {
 
 export function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -63,15 +64,38 @@ export function AuthPage() {
       }
 
       try {
-        const { error } = await supabase.auth.signUp({
+        const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/protected`,
+            emailRedirectTo: `${window.location.origin}/dashboard`,
+            data: {
+              name: name || email.split("@")[0],
+              user_type: "user",
+            },
           },
         });
-        if (error) throw error;
-        router.push("/auth/sign-up-success");
+        if (signUpError) throw signUpError;
+
+        // Create user profile in users table
+        if (data.user) {
+          const { error: profileError } = await supabase
+            .from("users")
+            .upsert({
+              id: data.user.id,
+              email: email,
+              name: name || email.split("@")[0],
+              points: 0,
+              user_type: "user",
+            });
+
+          if (profileError) {
+            console.error("Error creating profile:", profileError);
+            // Continue anyway as the trigger should handle it
+          }
+        }
+
+        router.push("/dashboard");
       } catch (error: unknown) {
         setError(error instanceof Error ? error.message : "An error occurred");
       } finally {
@@ -85,7 +109,7 @@ export function AuthPage() {
           password,
         });
         if (error) throw error;
-        router.push("/protected");
+        router.push("/dashboard");
       } catch (error: unknown) {
         setError(error instanceof Error ? error.message : "An error occurred");
       } finally {
@@ -97,6 +121,7 @@ export function AuthPage() {
   const toggleMode = () => {
     setIsSignUp(!isSignUp);
     setError(null);
+    setName("");
     setPassword("");
     setConfirmPassword("");
   };
@@ -117,6 +142,24 @@ export function AuthPage() {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Name Input (only for signup) */}
+        {isSignUp && (
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-gray-700">
+              Name
+            </Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Your name"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full"
+            />
+          </div>
+        )}
+
         {/* Email Input */}
         <div className="space-y-2">
           <Label htmlFor="email" className="text-gray-700">
